@@ -10,6 +10,7 @@ import xml.etree.ElementTree as ET
 
 
 USER_AGENT = "minimal-ai-research-agent/0.1"
+SUMMARY_MAX_CHARS = 260
 KEYWORDS = {
     "ai",
     "agent",
@@ -77,6 +78,7 @@ def _parse_entry(entry: ET.Element, source: str) -> NewsItem:
         or entry.findtext("{http://www.w3.org/2005/Atom}summary", "")
         or entry.findtext("{http://www.w3.org/2005/Atom}content", "")
     )
+    summary = _trim_summary(summary)
     published_raw = (
         entry.findtext("pubDate")
         or entry.findtext("{http://www.w3.org/2005/Atom}published")
@@ -154,3 +156,11 @@ def _has_title(entry: ET.Element) -> bool:
 
 def _clean(value: str) -> str:
     return " ".join((value or "").split())
+
+
+def _trim_summary(value: str) -> str:
+    if len(value) <= SUMMARY_MAX_CHARS:
+        return value
+
+    trimmed = value[: SUMMARY_MAX_CHARS - 3].rsplit(" ", 1)[0].strip()
+    return (trimmed or value[: SUMMARY_MAX_CHARS - 3].strip()) + "..."

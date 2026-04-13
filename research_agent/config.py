@@ -10,7 +10,7 @@ class Settings:
     rss_urls: list[str]
     output_dir: Path
     top_n: int
-    openai_api_key: str | None
+    openai_api_key: str
     openai_model: str
 
 
@@ -23,12 +23,14 @@ def load_settings() -> Settings:
         "https://huggingface.co/blog/feed.xml",
     ]
 
-    api_key = os.environ.get("OPENAI_API_KEY", "").strip() or None
+    api_key = os.environ.get("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is required.")
 
     return Settings(
         rss_urls=rss_urls,
         output_dir=Path("data"),
         top_n=10,
         openai_api_key=api_key,
-        openai_model=os.environ.get("OPENAI_MODEL", "gpt-4.1-mini"),
+        openai_model=os.environ.get("OPENAI_MODEL", "gpt-5-mini"),
     )

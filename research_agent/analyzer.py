@@ -2,15 +2,19 @@ from __future__ import annotations
 
 import json
 
+from openai import OpenAI
+
 from research_agent.rss import NewsItem
 
 
-SYSTEM_PROMPT = """You are an AI market research analyst.
-Return valid JSON only with this exact shape:
+SYSTEM_PROMPT = """Return JSON only:
 {
-  "summary": "short paragraph",
-  "product_company_insights": [
-    {"company_or_product": "name", "insight": "insight"}
+  "top_10_summary": "concise synthesis of the top 10 items",
+  "key_trends": [
+    {"trend": "trend name", "detail": "1-2 sentence explanation"}
+  ],
+  "company_product_updates": [
+    {"company_or_product": "name", "update": "what they are doing"}
   ],
   "startup_ideas": [
     {"name": "idea name", "description": "1-2 sentence description"}
@@ -18,107 +22,112 @@ Return valid JSON only with this exact shape:
 }
 
 Rules:
-- Base your answer only on the provided news items.
-- Keep the summary concise.
-- Provide 5 to 8 product/company insights.
-- Provide exactly 5 startup ideas.
-- Do not wrap the JSON in markdown fences.
+- Use only the news items provided.
+- Keep it concise and under 800 tokens total.
+- 3 to 5 key trends.
+- 5 to 8 company/product updates.
+- Exactly 5 startup ideas.
 """
 
 
 def analyze_news(
     *,
-    api_key: str | None,
+    api_key: str,
     model: str,
     news_items: list[NewsItem],
+    log_context: str,
 ) -> dict:
-    if not api_key:
-        return _build_fallback_analysis(news_items)
-
-    from openai import OpenAI
-
-    client = OpenAI(api_key=api_key)
-    user_prompt = _build_user_prompt(news_items)
+    client = OpenAI(api_key=api_key, max_retries=1)
+    user_prompt = _build_user_prompt(news_items, log_context)
 
     response = client.responses.create(
         model=model,
+        reasoning={"effort": "medium"},
+        max_output_tokens=800,
         input=[
             {"role": "system", "content": [{"type": "input_text", "text": SYSTEM_PROMPT}]},
             {"role": "user", "content": [{"type": "input_text", "text": user_prompt}]},
         ],
+        text={
+            "format": {
+                "type": "json_schema",
+                "name": "ai_research_report",
+                "schema": {
+                    "type": "object",
+                    "additionalProperties": False,
+                    "properties": {
+                        "top_10_summary": {"type": "string"},
+                        "key_trends": {
+                            "type": "array",
+                            "minItems": 3,
+                            "maxItems": 5,
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": False,
+                                "properties": {
+                                    "trend": {"type": "string"},
+                                    "detail": {"type": "string"},
+                                },
+                                "required": ["trend", "detail"],
+                            },
+                        },
+                        "company_product_updates": {
+                            "type": "array",
+                            "minItems": 5,
+                            "maxItems": 8,
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": False,
+                                "properties": {
+                                    "company_or_product": {"type": "string"},
+                                    "update": {"type": "string"},
+                                },
+                                "required": ["company_or_product", "update"],
+                            },
+                        },
+                        "startup_ideas": {
+                            "type": "array",
+                            "minItems": 5,
+                            "maxItems": 5,
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": False,
+                                "properties": {
+                                    "name": {"type": "string"},
+                                    "description": {"type": "string"},
+                                },
+                                "required": ["name", "description"],
+                            },
+                        },
+                    },
+                    "required": [
+                        "top_10_summary",
+                        "key_trends",
+                        "company_product_updates",
+                        "startup_ideas",
+                    ],
+                },
+            }
+        },
     )
 
     return json.loads(response.output_text)
 
 
-def _build_user_prompt(news_items: list[NewsItem]) -> str:
-    serialized_items = []
-    for index, item in enumerate(news_items, start=1):
-        serialized_items.append(
-            {
-                "rank": index,
-                "title": item.title,
-                "source": item.source,
-                "published_at": item.published_at,
-                "link": item.link,
-                "summary": item.summary,
-            }
-        )
-
-    return "Analyze these AI news items:\n" + json.dumps(serialized_items, indent=2)
-
-
-def _build_fallback_analysis(news_items: list[NewsItem]) -> dict:
-    top_titles = [item.title for item in news_items[:3]]
-    summary = "This run used the local fallback analyzer because no LLM API key was configured. "
-    if top_titles:
-        summary += "Top themes came from: " + "; ".join(top_titles) + "."
-    else:
-        summary += "No news items were available."
-
-    insights = []
-    for item in news_items[:6]:
-        company_or_product = _guess_company_or_product(item.title, item.source)
-        insights.append(
-            {
-                "company_or_product": company_or_product,
-                "insight": f"{company_or_product} appears active in current AI news momentum, with attention driven by '{item.title}'.",
-            }
-        )
-
-    startup_ideas = [
+def _build_user_prompt(news_items: list[NewsItem], log_context: str) -> str:
+    serialized_items = [
         {
-            "name": "AI News Signal Dashboard",
-            "description": "Track AI company launches, funding, and model releases across major feeds and surface momentum changes for operators and investors.",
-        },
-        {
-            "name": "Model Launch Sales Copilot",
-            "description": "Turn fresh AI product announcements into account-specific sales angles for B2B teams selling infrastructure or services.",
-        },
-        {
-            "name": "Competitive Research Agent",
-            "description": "Monitor competitor announcements, summarize strategy shifts, and generate weekly product implications for startup leadership teams.",
-        },
-        {
-            "name": "AI Feature Trend Finder",
-            "description": "Cluster news by use case and suggest which AI features product teams should prioritize based on market movement.",
-        },
-        {
-            "name": "Enterprise AI Risk Briefing",
-            "description": "Convert daily AI headlines into short compliance, vendor, and procurement briefs for enterprise decision-makers.",
-        },
+            "rank": index,
+            "title": item.title,
+            "source": item.source,
+            "published_at": item.published_at,
+            "summary": item.summary,
+        }
+        for index, item in enumerate(news_items[:10], start=1)
     ]
 
-    return {
-        "summary": summary,
-        "product_company_insights": insights,
-        "startup_ideas": startup_ideas,
+    payload = {
+        "recent_log_context": log_context,
+        "top_10_news_items": serialized_items,
     }
-
-
-def _guess_company_or_product(title: str, source: str) -> str:
-    words = [word.strip(",:") for word in title.split()]
-    for word in words:
-        if word[:1].isupper() and len(word) > 2:
-            return word
-    return source
+    return json.dumps(payload, separators=(",", ":"))
