@@ -115,11 +115,11 @@
       `
     );
 
-    const companyUpdates = (analysis.company_product_updates || []).map(
+    const companyUpdates = (analysis.company_product_moves || analysis.company_product_updates || []).map(
       (item) => `
         <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-4 transition hover:border-emerald-400/30">
           <h4 class="text-sm font-semibold text-zinc-100 sm:text-base">${escapeHtml(item.company_or_product)}</h4>
-          <p class="mt-2 text-sm leading-6 text-zinc-300">${escapeHtml(item.update)}</p>
+          <p class="mt-2 text-sm leading-6 text-zinc-300">${escapeHtml(item.move || item.update)}</p>
         </article>
       `
     );
@@ -155,7 +155,7 @@
     const newsItems = reportPayload.news_items || [];
 
     titleNode.textContent = reportMeta.generated_date || parseDate(reportMeta.generated_at) || "Report";
-    summaryNode.textContent = analysis.top_10_summary || "No summary available.";
+    summaryNode.textContent = analysis.overall_summary || analysis.top_10_summary || "No summary available.";
     generatedAtNode.textContent = reportMeta.generated_at || "-";
     newsCountNode.textContent = String(newsItems.length);
 

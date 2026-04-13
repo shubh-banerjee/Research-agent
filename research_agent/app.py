@@ -5,19 +5,20 @@ from datetime import datetime, timezone
 from research_agent.analyzer import analyze_news
 from research_agent.config import load_settings
 from research_agent.rss import fetch_top_items
-from research_agent.storage import append_system_log, read_log_context, save_report
+from research_agent.storage import append_system_log, save_report
 
 
 def run() -> None:
     settings = load_settings()
     generated_at = datetime.now(timezone.utc).isoformat()
-    log_context = read_log_context(settings.output_dir.parent / "system_log.md")
+    print("Fetching news...")
     news_items = fetch_top_items(settings.rss_urls, settings.top_n)
+
+    print("Analyzing with model...")
     analysis = analyze_news(
-        api_key=settings.openai_api_key,
-        model=settings.openai_model,
+        api_key=settings.openrouter_api_key,
+        model=settings.model,
         news_items=news_items,
-        log_context=log_context,
     )
 
     payload = {
@@ -37,9 +38,11 @@ def run() -> None:
     }
 
     output_path = save_report(settings.output_dir, payload)
+
     append_system_log(
         log_path=settings.output_dir.parent / "system_log.md",
         timestamp=generated_at,
         analysis=analysis,
     )
+
     print(f"Saved report to {output_path.resolve()}")

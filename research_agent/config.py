@@ -1,8 +1,9 @@
 from __future__ import annotations
 
-import os
 from dataclasses import dataclass
 from pathlib import Path
+
+from research_agent.secrets import OPENROUTER_API_KEY, OPENROUTER_MODEL
 
 
 @dataclass(frozen=True)
@@ -10,8 +11,8 @@ class Settings:
     rss_urls: list[str]
     output_dir: Path
     top_n: int
-    openai_api_key: str
-    openai_model: str
+    openrouter_api_key: str
+    model: str
 
 
 def load_settings() -> Settings:
@@ -23,14 +24,13 @@ def load_settings() -> Settings:
         "https://huggingface.co/blog/feed.xml",
     ]
 
-    api_key = os.environ.get("OPENAI_API_KEY", "").strip()
-    if not api_key:
-        raise RuntimeError("OPENAI_API_KEY is required.")
+    api_key = OPENROUTER_API_KEY.strip()
+    model = OPENROUTER_MODEL.strip() or "qwen/qwen3-coder:free"
 
     return Settings(
         rss_urls=rss_urls,
         output_dir=Path("data"),
         top_n=10,
-        openai_api_key=api_key,
-        openai_model=os.environ.get("OPENAI_MODEL", "gpt-5-mini"),
+        openrouter_api_key=api_key,
+        model=model,
     )

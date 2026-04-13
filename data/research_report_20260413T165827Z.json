@@ -1,0 +1,150 @@
+{
+  "generated_at": "2026-04-13T16:58:22.872898+00:00",
+  "news_items": [
+    {
+      "title": "Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI",
+      "link": "https://openai.com/index/cloudflare-openai-agent-cloud",
+      "published_at": "2026-04-13T06:00:00+00:00",
+      "source": "OpenAI News",
+      "summary": "Cloudflare brings OpenAI\u2019s GPT-5.4 and Codex to Agent Cloud, enabling enterprises to build, deploy, and scale AI agents for real-world tasks with speed and security.",
+      "score": 129.02675352222224
+    },
+    {
+      "title": "Vercel CEO Guillermo Rauch signals IPO readiness as AI agents fuel revenue surge",
+      "link": "https://techcrunch.com/2026/04/13/vercel-ceo-guillermo-rauch-signals-ipo-readiness-as-ai-agents-fuel-revenue-surge/",
+      "published_at": "2026-04-13T15:22:29+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "\"The company is ready and getting more ready for every day,\" Rauch said about an IPO at HumanX conference.",
+      "score": 128.40071772027778
+    },
+    {
+      "title": "Trump officials may be encouraging banks to test Anthropic\u2019s Mythos model",
+      "link": "https://techcrunch.com/2026/04/12/trump-officials-may-be-encouraging-banks-to-test-anthropics-mythos-model/",
+      "published_at": "2026-04-12T21:14:38+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The report is particularly surprising since the Department of Defense recently declared Anthropic a supply-chain risk.",
+      "score": 110.26988436861112
+    },
+    {
+      "title": "From LLMs to hallucinations, here\u2019s a simple guide to common AI terms",
+      "link": "https://techcrunch.com/2026/04/12/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
+      "published_at": "2026-04-12T15:07:08+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases you might encounter.",
+      "score": 94.14488435666667
+    },
+    {
+      "title": "At the HumanX conference, everyone was talking about Claude",
+      "link": "https://techcrunch.com/2026/04/12/at-the-humanx-conference-everyone-was-talking-about-claude/",
+      "published_at": "2026-04-12T15:00:00+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "Anthropic was the star of the show at San Francisco's AI-centric conference.",
+      "score": 94.02599546277779
+    },
+    {
+      "title": "The largest orbital compute cluster is open for business",
+      "link": "https://techcrunch.com/2026/04/13/the-largest-orbital-compute-cluster-is-open-for-business/",
+      "published_at": "2026-04-13T07:01:00+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "Kepler Communications is flying 40 GPUs in Earth orbit. And its latest customer is Sophia Space.",
+      "score": 90.04266215333334
+    },
+    {
+      "title": "Apple reportedly testing four designs for upcoming smart glasses",
+      "link": "https://techcrunch.com/2026/04/12/apple-reportedly-testing-four-designs-for-upcoming-smart-glasses/",
+      "published_at": "2026-04-12T19:58:42+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "These glasses are a step back from an ambitious plan that once called for Apple to launch a variety of mixed and augmented reality devices.",
+      "score": 89.00432880777778
+    },
+    {
+      "title": "Sam Altman responds to \u2018incendiary\u2019 New Yorker article after attack on his home",
+      "link": "https://techcrunch.com/2026/04/11/sam-altman-responds-to-incendiary-new-yorker-article-after-attack-on-his-home/",
+      "published_at": "2026-04-11T17:18:22+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The OpenAI CEO's new blog post responds to both an apparent attack on his home and an in-depth New Yorker profile raising questions about his trustworthiness.",
+      "score": 72.33210656805556
+    },
+    {
+      "title": "OpenAI and Amazon announce strategic partnership",
+      "link": "https://openai.com/index/amazon-partnership",
+      "published_at": "2026-02-27T05:30:00+00:00",
+      "source": "OpenAI News",
+      "summary": "OpenAI and Amazon announce a strategic partnership bringing OpenAI\u2019s Frontier platform to AWS, expanding AI infrastructure, custom models, and enterprise AI agents.",
+      "score": 60.0
+    },
+    {
+      "title": "TRUSTBANK uses AI agents to personalize Furusato Nozei gifts",
+      "link": "https://openai.com/index/trustbank",
+      "published_at": "2026-01-27T00:00:00+00:00",
+      "source": "OpenAI News",
+      "summary": "TRUSTBANK partnered with Recursive to build Choice AI using OpenAI models, enabling personalized conversational recommendations that simplify Furusato Nozei gift discovery.",
+      "score": 60.0
+    }
+  ],
+  "analysis": {
+    "overall_summary": "Fallback mode: OpenRouter was unavailable. Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI | Vercel CEO Guillermo Rauch signals IPO readiness as AI agents fuel revenue surge | Trump officials may be encouraging banks to test Anthropic\u2019s Mythos model",
+    "key_trends": [
+      {
+        "trend": "Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI",
+        "detail": "Cloudflare brings OpenAI\u2019s GPT-5.4 and Codex to Agent Cloud, enabling enterprises to build, deploy, and scale AI agents for real-world tasks with speed and security."
+      },
+      {
+        "trend": "Vercel CEO Guillermo Rauch signals IPO readiness as AI agents fuel revenue surge",
+        "detail": "\"The company is ready and getting more ready for every day,\" Rauch said about an IPO at HumanX conference."
+      },
+      {
+        "trend": "Trump officials may be encouraging banks to test Anthropic\u2019s Mythos model",
+        "detail": "The report is particularly surprising since the Department of Defense recently declared Anthropic a supply-chain risk."
+      }
+    ],
+    "company_product_moves": [
+      {
+        "company_or_product": "Enterprises",
+        "move": "Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI"
+      },
+      {
+        "company_or_product": "Vercel",
+        "move": "Vercel CEO Guillermo Rauch signals IPO readiness as AI agents fuel revenue surge"
+      },
+      {
+        "company_or_product": "Trump",
+        "move": "Trump officials may be encouraging banks to test Anthropic\u2019s Mythos model"
+      },
+      {
+        "company_or_product": "From",
+        "move": "From LLMs to hallucinations, here\u2019s a simple guide to common AI terms"
+      },
+      {
+        "company_or_product": "At",
+        "move": "At the HumanX conference, everyone was talking about Claude"
+      },
+      {
+        "company_or_product": "The",
+        "move": "The largest orbital compute cluster is open for business"
+      }
+    ],
+    "startup_ideas": [
+      {
+        "name": "AI News Copilot",
+        "description": "Summarize daily AI updates for teams and founders."
+      },
+      {
+        "name": "Competitive Watchtower",
+        "description": "Track competitor AI announcements and strategy shifts."
+      },
+      {
+        "name": "Model Launch Radar",
+        "description": "Alert teams to new model launches and ecosystem impact."
+      },
+      {
+        "name": "AI Product Teardown",
+        "description": "Convert AI news into actionable product briefs."
+      },
+      {
+        "name": "Trend-to-Idea Engine",
+        "description": "Map AI trends to startup ideas with weekly reports."
+      }
+    ]
+  }
+}

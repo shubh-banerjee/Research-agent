@@ -64,9 +64,9 @@ def append_system_log(
 ) -> None:
     ensure_system_log(log_path)
 
-    summary = analysis.get("top_10_summary", "").strip()
+    summary = (analysis.get("overall_summary") or analysis.get("top_10_summary") or "").strip()
     key_trends = analysis.get("key_trends", [])
-    company_updates = analysis.get("company_product_updates", [])
+    company_updates = analysis.get("company_product_moves") or analysis.get("company_product_updates") or []
 
     lines = [
         f"## Run {timestamp}",
@@ -81,7 +81,7 @@ def append_system_log(
 
     for update in company_updates:
         lines.append(
-            f"  - Company/Product: {update.get('company_or_product', '')} - {update.get('update', '')}"
+            f"  - Company/Product: {update.get('company_or_product', '')} - {update.get('move', update.get('update', ''))}"
         )
 
     lines.append("")
