@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from typing import Iterable
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
@@ -42,7 +43,10 @@ class NewsItem:
 def fetch_top_items(rss_urls: Iterable[str], limit: int) -> list[NewsItem]:
     items: list[NewsItem] = []
     for url in rss_urls:
-        items.extend(_fetch_feed(url))
+        try:
+            items.extend(_fetch_feed(url))
+        except (HTTPError, URLError, ET.ParseError, TimeoutError, ValueError):
+            continue
 
     deduped = _dedupe_items(items)
     ranked = sorted(deduped, key=lambda item: item.score, reverse=True)

@@ -1,0 +1,136 @@
+{
+  "generated_at": "2026-04-13T09:44:47.720131+00:00",
+  "news_items": [
+    {
+      "title": "Trump officials may be encouraging banks to test Anthropic\u2019s Mythos model",
+      "link": "https://techcrunch.com/2026/04/12/trump-officials-may-be-encouraging-banks-to-test-anthropics-mythos-model/",
+      "published_at": "2026-04-12T21:14:38+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The report is particularly surprising since the Department of Defense recently declared Anthropic a supply-chain risk.",
+      "score": 117.49772584388889
+    },
+    {
+      "title": "From LLMs to hallucinations, here\u2019s a simple guide to common AI terms",
+      "link": "https://techcrunch.com/2026/04/12/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
+      "published_at": "2026-04-12T15:07:08+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases you might encounter.",
+      "score": 101.37272582888889
+    },
+    {
+      "title": "At the HumanX conference, everyone was talking about Claude",
+      "link": "https://techcrunch.com/2026/04/12/at-the-humanx-conference-everyone-was-talking-about-claude/",
+      "published_at": "2026-04-12T15:00:00+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "Anthropic was the star of the show at San Francisco's AI-centric conference.",
+      "score": 101.253836935
+    },
+    {
+      "title": "The largest orbital compute cluster is open for business",
+      "link": "https://techcrunch.com/2026/04/13/the-largest-orbital-compute-cluster-is-open-for-business/",
+      "published_at": "2026-04-13T07:01:00+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "Kepler Communications is flying 40 GPUs in Earth orbit. And its latest customer is Sophia Space.",
+      "score": 97.27050363666666
+    },
+    {
+      "title": "Apple reportedly testing four designs for upcoming smart glasses",
+      "link": "https://techcrunch.com/2026/04/12/apple-reportedly-testing-four-designs-for-upcoming-smart-glasses/",
+      "published_at": "2026-04-12T19:58:42+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "These glasses are a step back from an ambitious plan that once called for Apple to launch a variety of mixed and augmented reality devices.",
+      "score": 96.23217028055555
+    },
+    {
+      "title": "Sam Altman responds to \u2018incendiary\u2019 New Yorker article after attack on his home",
+      "link": "https://techcrunch.com/2026/04/11/sam-altman-responds-to-incendiary-new-yorker-article-after-attack-on-his-home/",
+      "published_at": "2026-04-11T17:18:22+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The OpenAI CEO's new blog post responds to both an apparent attack on his home and an in-depth New Yorker profile raising questions about his trustworthiness.",
+      "score": 79.55994804
+    },
+    {
+      "title": "OpenAI and Amazon announce strategic partnership",
+      "link": "https://openai.com/index/amazon-partnership",
+      "published_at": "2026-02-27T05:30:00+00:00",
+      "source": "OpenAI News",
+      "summary": "OpenAI and Amazon announce a strategic partnership bringing OpenAI\u2019s Frontier platform to AWS, expanding AI infrastructure, custom models, and enterprise AI agents.",
+      "score": 60.0
+    },
+    {
+      "title": "TRUSTBANK uses AI agents to personalize Furusato Nozei gifts",
+      "link": "https://openai.com/index/trustbank",
+      "published_at": "2026-01-27T00:00:00+00:00",
+      "source": "OpenAI News",
+      "summary": "TRUSTBANK partnered with Recursive to build Choice AI using OpenAI models, enabling personalized conversational recommendations that simplify Furusato Nozei gift discovery.",
+      "score": 60.0
+    },
+    {
+      "title": "SafetyKit scales risk agents with OpenAI\u2019s most capable models",
+      "link": "https://openai.com/index/safetykit",
+      "published_at": "2025-09-09T10:00:00+00:00",
+      "source": "OpenAI News",
+      "summary": "Discover how SafetyKit leverages OpenAI GPT-5 to enhance content moderation, enforce compliance, and outpace legacy safety systems with greater accuracy .",
+      "score": 60.0
+    },
+    {
+      "title": "Stalking victim sues OpenAI, claims ChatGPT fueled her abuser\u2019s delusions and ignored her warnings",
+      "link": "https://techcrunch.com/2026/04/10/stalking-victim-sues-openai-claims-chatgpt-fueled-her-abusers-delusions-and-ignored-her-warnings/",
+      "published_at": "2026-04-10T16:41:34+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "OpenAI ignored three warnings that a ChatGPT user was dangerous \u2014 including its own mass-casualty flag \u2014 while he stalked and harassed his ex-girlfriend, a new lawsuit alleges.",
+      "score": 54.94661469416667
+    }
+  ],
+  "analysis": {
+    "summary": "This run used the local fallback analyzer because no LLM API key was configured. Top themes came from: Trump officials may be encouraging banks to test Anthropic\u2019s Mythos model; From LLMs to hallucinations, here\u2019s a simple guide to common AI terms; At the HumanX conference, everyone was talking about Claude.",
+    "product_company_insights": [
+      {
+        "company_or_product": "Trump",
+        "insight": "Trump appears active in current AI news momentum, with attention driven by 'Trump officials may be encouraging banks to test Anthropic\u2019s Mythos model'."
+      },
+      {
+        "company_or_product": "From",
+        "insight": "From appears active in current AI news momentum, with attention driven by 'From LLMs to hallucinations, here\u2019s a simple guide to common AI terms'."
+      },
+      {
+        "company_or_product": "HumanX",
+        "insight": "HumanX appears active in current AI news momentum, with attention driven by 'At the HumanX conference, everyone was talking about Claude'."
+      },
+      {
+        "company_or_product": "The",
+        "insight": "The appears active in current AI news momentum, with attention driven by 'The largest orbital compute cluster is open for business'."
+      },
+      {
+        "company_or_product": "Apple",
+        "insight": "Apple appears active in current AI news momentum, with attention driven by 'Apple reportedly testing four designs for upcoming smart glasses'."
+      },
+      {
+        "company_or_product": "Sam",
+        "insight": "Sam appears active in current AI news momentum, with attention driven by 'Sam Altman responds to \u2018incendiary\u2019 New Yorker article after attack on his home'."
+      }
+    ],
+    "startup_ideas": [
+      {
+        "name": "AI News Signal Dashboard",
+        "description": "Track AI company launches, funding, and model releases across major feeds and surface momentum changes for operators and investors."
+      },
+      {
+        "name": "Model Launch Sales Copilot",
+        "description": "Turn fresh AI product announcements into account-specific sales angles for B2B teams selling infrastructure or services."
+      },
+      {
+        "name": "Competitive Research Agent",
+        "description": "Monitor competitor announcements, summarize strategy shifts, and generate weekly product implications for startup leadership teams."
+      },
+      {
+        "name": "AI Feature Trend Finder",
+        "description": "Cluster news by use case and suggest which AI features product teams should prioritize based on market movement."
+      },
+      {
+        "name": "Enterprise AI Risk Briefing",
+        "description": "Convert daily AI headlines into short compliance, vendor, and procurement briefs for enterprise decision-makers."
+      }
+    ]
+  }
+}

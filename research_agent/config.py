@@ -16,10 +16,11 @@ class Settings:
 
 def load_settings() -> Settings:
     rss_urls = [
-        "https://openai.com/news/rss.xml",
-        "https://www.anthropic.com/news/rss.xml",
+        "https://openai.com/blog/rss.xml",
+        "https://www.anthropic.com/news/rss",
         "https://techcrunch.com/category/artificial-intelligence/feed/",
         "https://venturebeat.com/ai/feed/",
+        "https://huggingface.co/blog/feed.xml",
     ]
 
     api_key = os.environ.get("OPENAI_API_KEY", "").strip() or None
