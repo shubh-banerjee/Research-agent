@@ -10,7 +10,11 @@ if __name__ == "__main__":
     with open(latest_report_path, 'w') as latest_file:
         json.dump(report_data, latest_file, indent=4)
     
-    # After generating the report, save it to latest.json
+    # Always create latest.json directly after saving the report file
+    import shutil
+    latest_path = 'data/latest.json'
+    shutil.copyfile(latest_report, latest_path)
+
     import json
     import glob
     import os
