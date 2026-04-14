@@ -9,4 +9,22 @@ if __name__ == "__main__":
         report_data = json.load(report_file)
     with open(latest_report_path, 'w') as latest_file:
         json.dump(report_data, latest_file, indent=4)
+    
+    # After generating the report, save it to latest.json
+    import json
+    import glob
+    import os
+
+    # Locate the most recent report file
+    report_files = glob.glob('data/research_report_*.json')
+    latest_report = max(report_files, key=os.path.getctime)
+
+    # Read the content of the latest report
+    with open(latest_report, 'r') as f:
+        report_data = json.load(f)
+
+    # Save the content to latest.json
+    with open('data/latest.json', 'w') as latest_file:
+        json.dump(report_data, latest_file, indent=4)
+
     run()
