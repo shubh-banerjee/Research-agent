@@ -27,4 +27,10 @@ if __name__ == "__main__":
     with open('data/latest.json', 'w') as latest_file:
         json.dump(report_data, latest_file, indent=4)
 
+    
+    import shutil
+
+    latest_path = 'data/latest.json'
+    shutil.copyfile(latest_report, latest_path)
+
     run()
