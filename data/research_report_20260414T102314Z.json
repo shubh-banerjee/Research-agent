@@ -1,0 +1,150 @@
+{
+  "generated_at": "2026-04-14T10:23:10.395797+00:00",
+  "news_items": [
+    {
+      "title": "Vercel CEO Guillermo Rauch signals IPO readiness as AI agents fuel revenue surge",
+      "link": "https://techcrunch.com/2026/04/13/vercel-ceo-guillermo-rauch-signals-ipo-readiness-as-ai-agents-fuel-revenue-surge/",
+      "published_at": "2026-04-13T15:22:29+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "While many startups founded prior to the emergence of ChatGPT are struggling to position themselves for the AI era, Vercel, a 10-year-old dev tool and website hosting platform, is benefiting from the explosion of AI-generated apps and agents.",
+      "score": 120.98764044527778
+    },
+    {
+      "title": "OpenAI has bought AI personal finance startup Hiro",
+      "link": "https://techcrunch.com/2026/04/13/openai-has-bought-ai-personal-finance-startup-hiro/",
+      "published_at": "2026-04-14T00:23:33+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The acquisition indicates a capability that OpenAI is building into ChatGPT: financial planning.",
+      "score": 120.00541824861111
+    },
+    {
+      "title": "Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI",
+      "link": "https://openai.com/index/cloudflare-openai-agent-cloud",
+      "published_at": "2026-04-13T06:00:00+00:00",
+      "source": "OpenAI News",
+      "summary": "Cloudflare brings OpenAI\u2019s GPT-5.4 and Codex to Agent Cloud, enabling enterprises to build, deploy, and scale AI agents for real-world tasks with speed and security.",
+      "score": 111.61364176972222
+    },
+    {
+      "title": "Microsoft is working on yet another OpenClaw-like agent",
+      "link": "https://techcrunch.com/2026/04/13/microsoft-is-working-on-yet-another-openclaw-like-agent/",
+      "published_at": "2026-04-13T19:05:19+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The new features would be geared toward enterprise customers, with better security controls than the famously risky open source OpenClaw agent.",
+      "score": 104.70152935
+    },
+    {
+      "title": "Stanford report highlights growing disconnect between AI insiders and everyone else",
+      "link": "https://techcrunch.com/2026/04/13/stanford-report-highlights-growing-disconnect-between-ai-insiders-and-everyone-else/",
+      "published_at": "2026-04-13T18:55:37+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "Stanford\u2019s latest AI Index shows a widening gap between experts and the public, with rising anxiety over jobs, healthcare, and the economy.",
+      "score": 94.53986267472223
+    },
+    {
+      "title": "Trump officials may be encouraging banks to test Anthropic\u2019s Mythos model",
+      "link": "https://techcrunch.com/2026/04/12/trump-officials-may-be-encouraging-banks-to-test-anthropics-mythos-model/",
+      "published_at": "2026-04-12T21:14:38+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The report is particularly surprising since the Department of Defense recently declared Anthropic a supply-chain risk.",
+      "score": 92.85680710027778
+    },
+    {
+      "title": "From LLMs to hallucinations, here\u2019s a simple guide to common AI terms",
+      "link": "https://techcrunch.com/2026/04/12/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
+      "published_at": "2026-04-12T15:07:08+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases you might encounter.",
+      "score": 76.73180708833334
+    },
+    {
+      "title": "At the HumanX conference, everyone was talking about Claude",
+      "link": "https://techcrunch.com/2026/04/12/at-the-humanx-conference-everyone-was-talking-about-claude/",
+      "published_at": "2026-04-12T15:00:00+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "Anthropic was the star of the show at San Francisco's AI-centric conference.",
+      "score": 76.61291819472223
+    },
+    {
+      "title": "The largest orbital compute cluster is open for business",
+      "link": "https://techcrunch.com/2026/04/13/the-largest-orbital-compute-cluster-is-open-for-business/",
+      "published_at": "2026-04-13T07:01:00+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "Kepler Communications is flying 40 GPUs in Earth orbit. And its latest customer is Sophia Space.",
+      "score": 72.62958488444444
+    },
+    {
+      "title": "Apple reportedly testing four designs for upcoming smart glasses",
+      "link": "https://techcrunch.com/2026/04/12/apple-reportedly-testing-four-designs-for-upcoming-smart-glasses/",
+      "published_at": "2026-04-12T19:58:42+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "These glasses are a step back from an ambitious plan that once called for Apple to launch a variety of mixed and augmented reality devices.",
+      "score": 71.59125153916666
+    }
+  ],
+  "analysis": {
+    "overall_summary": "Fallback mode: OpenRouter was unavailable. Vercel CEO Guillermo Rauch signals IPO readiness as AI agents fuel revenue surge | OpenAI has bought AI personal finance startup Hiro | Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI",
+    "key_trends": [
+      {
+        "trend": "Vercel CEO Guillermo Rauch signals IPO readiness as AI agents fuel revenue surge",
+        "detail": "While many startups founded prior to the emergence of ChatGPT are struggling to position themselves for the AI era, Vercel, a 10-year-old dev tool and website hosting platform, is "
+      },
+      {
+        "trend": "OpenAI has bought AI personal finance startup Hiro",
+        "detail": "The acquisition indicates a capability that OpenAI is building into ChatGPT: financial planning."
+      },
+      {
+        "trend": "Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI",
+        "detail": "Cloudflare brings OpenAI\u2019s GPT-5.4 and Codex to Agent Cloud, enabling enterprises to build, deploy, and scale AI agents for real-world tasks with speed and security."
+      }
+    ],
+    "company_product_moves": [
+      {
+        "company_or_product": "Vercel",
+        "move": "Vercel CEO Guillermo Rauch signals IPO readiness as AI agents fuel revenue surge"
+      },
+      {
+        "company_or_product": "OpenAI",
+        "move": "OpenAI has bought AI personal finance startup Hiro"
+      },
+      {
+        "company_or_product": "Enterprises",
+        "move": "Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI"
+      },
+      {
+        "company_or_product": "Microsoft",
+        "move": "Microsoft is working on yet another OpenClaw-like agent"
+      },
+      {
+        "company_or_product": "Stanford",
+        "move": "Stanford report highlights growing disconnect between AI insiders and everyone else"
+      },
+      {
+        "company_or_product": "Trump",
+        "move": "Trump officials may be encouraging banks to test Anthropic\u2019s Mythos model"
+      }
+    ],
+    "startup_ideas": [
+      {
+        "name": "AI News Copilot",
+        "description": "Summarize daily AI updates for teams and founders."
+      },
+      {
+        "name": "Competitive Watchtower",
+        "description": "Track competitor AI announcements and strategy shifts."
+      },
+      {
+        "name": "Model Launch Radar",
+        "description": "Alert teams to new model launches and ecosystem impact."
+      },
+      {
+        "name": "AI Product Teardown",
+        "description": "Convert AI news into actionable product briefs."
+      },
+      {
+        "name": "Trend-to-Idea Engine",
+        "description": "Map AI trends to startup ideas with weekly reports."
+      }
+    ]
+  }
+}
