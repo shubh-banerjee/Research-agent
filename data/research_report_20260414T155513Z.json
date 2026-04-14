@@ -1,0 +1,150 @@
+{
+  "generated_at": "2026-04-14T15:54:54.283810+00:00",
+  "news_items": [
+    {
+      "title": "Google brings its Gemini Personal Intelligence feature to India",
+      "link": "https://techcrunch.com/2026/04/14/google-brings-its-gemini-personal-intelligence-feature-to-india/",
+      "published_at": "2026-04-14T14:48:34+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The feature lets users connect Google accounts like Gmail and Photos to get personalized answers.",
+      "score": 118.89313171361111
+    },
+    {
+      "title": "How vibe coding app Anything is rebuilding after getting booted from the App Store twice",
+      "link": "https://techcrunch.com/2026/04/14/how-vibe-coding-app-anything-is-rebuilding-after-getting-booted-from-the-app-store-twice/",
+      "published_at": "2026-04-14T14:22:44+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "Anything is planning to launch a desktop companion app to aid mobile app development after its App Store removal.",
+      "score": 118.46257615166667
+    },
+    {
+      "title": "Vercel CEO Guillermo Rauch signals IPO readiness as AI agents fuel revenue surge",
+      "link": "https://techcrunch.com/2026/04/13/vercel-ceo-guillermo-rauch-signals-ipo-readiness-as-ai-agents-fuel-revenue-surge/",
+      "published_at": "2026-04-13T15:22:29+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "While many startups founded prior to the emergence of ChatGPT are struggling to position themselves for the AI era, Vercel, a 10-year-old dev tool and website hosting platform, is benefiting from the explosion of AI-generated apps and agents.",
+      "score": 115.45840946055556
+    },
+    {
+      "title": "OpenAI has bought AI personal finance startup Hiro",
+      "link": "https://techcrunch.com/2026/04/13/openai-has-bought-ai-personal-finance-startup-hiro/",
+      "published_at": "2026-04-14T00:23:33+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The acquisition indicates a capability that OpenAI is building into ChatGPT: financial planning.",
+      "score": 114.4761872575
+    },
+    {
+      "title": "In just a couple weeks, StrictlyVC San Francisco brings leaders from TDK Ventures, Replit, and more together",
+      "link": "https://techcrunch.com/2026/04/14/join-the-first-strictlyvc-of-2026-in-sf-with-leaders-from-tdk-ventures-and-replits-co-founder/",
+      "published_at": "2026-04-14T15:30:49+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The first StrictlyVC of the year will be coming to San Francisco before you know it. There are still a few tickets available to join us and our stacked speaker lineup April 30, so register today!",
+      "score": 109.59729839055555
+    },
+    {
+      "title": "Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI",
+      "link": "https://openai.com/index/cloudflare-openai-agent-cloud",
+      "published_at": "2026-04-13T06:00:00+00:00",
+      "source": "OpenAI News",
+      "summary": "Cloudflare brings OpenAI\u2019s GPT-5.4 and Codex to Agent Cloud, enabling enterprises to build, deploy, and scale AI agents for real-world tasks with speed and security.",
+      "score": 106.08472710694444
+    },
+    {
+      "title": "Microsoft is working on yet another OpenClaw-like agent",
+      "link": "https://techcrunch.com/2026/04/13/microsoft-is-working-on-yet-another-openclaw-like-agent/",
+      "published_at": "2026-04-13T19:05:19+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The new features would be geared toward enterprise customers, with better security controls than the famously risky open source OpenClaw agent.",
+      "score": 99.17229836305556
+    },
+    {
+      "title": "Stanford report highlights growing disconnect between AI insiders and everyone else",
+      "link": "https://techcrunch.com/2026/04/13/stanford-report-highlights-growing-disconnect-between-ai-insiders-and-everyone-else/",
+      "published_at": "2026-04-13T18:55:37+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "Stanford\u2019s latest AI Index shows a widening gap between experts and the public, with rising anxiety over jobs, healthcare, and the economy.",
+      "score": 89.01063168944444
+    },
+    {
+      "title": "Trump officials may be encouraging banks to test Anthropic\u2019s Mythos model",
+      "link": "https://techcrunch.com/2026/04/12/trump-officials-may-be-encouraging-banks-to-test-anthropics-mythos-model/",
+      "published_at": "2026-04-12T21:14:38+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The report is particularly surprising since the Department of Defense recently declared Anthropic a supply-chain risk.",
+      "score": 87.32757611527778
+    },
+    {
+      "title": "From LLMs to hallucinations, here\u2019s a simple guide to common AI terms",
+      "link": "https://techcrunch.com/2026/04/12/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
+      "published_at": "2026-04-12T15:07:08+00:00",
+      "source": "AI News & Artificial Intelligence | TechCrunch",
+      "summary": "The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases you might encounter.",
+      "score": 71.20257610305555
+    }
+  ],
+  "analysis": {
+    "overall_summary": "Fallback mode: OpenRouter was unavailable. Google brings its Gemini Personal Intelligence feature to India | How vibe coding app Anything is rebuilding after getting booted from the App Store twice | Vercel CEO Guillermo Rauch signals IPO readiness as AI agents fuel revenue surge",
+    "key_trends": [
+      {
+        "trend": "Google brings its Gemini Personal Intelligence feature to India",
+        "detail": "The feature lets users connect Google accounts like Gmail and Photos to get personalized answers."
+      },
+      {
+        "trend": "How vibe coding app Anything is rebuilding after getting booted from the App Sto",
+        "detail": "Anything is planning to launch a desktop companion app to aid mobile app development after its App Store removal."
+      },
+      {
+        "trend": "Vercel CEO Guillermo Rauch signals IPO readiness as AI agents fuel revenue surge",
+        "detail": "While many startups founded prior to the emergence of ChatGPT are struggling to position themselves for the AI era, Vercel, a 10-year-old dev tool and website hosting platform, is "
+      }
+    ],
+    "company_product_moves": [
+      {
+        "company_or_product": "Google",
+        "move": "Google brings its Gemini Personal Intelligence feature to India"
+      },
+      {
+        "company_or_product": "How",
+        "move": "How vibe coding app Anything is rebuilding after getting booted from the App Store twice"
+      },
+      {
+        "company_or_product": "Vercel",
+        "move": "Vercel CEO Guillermo Rauch signals IPO readiness as AI agents fuel revenue surge"
+      },
+      {
+        "company_or_product": "OpenAI",
+        "move": "OpenAI has bought AI personal finance startup Hiro"
+      },
+      {
+        "company_or_product": "In",
+        "move": "In just a couple weeks, StrictlyVC San Francisco brings leaders from TDK Ventures, Replit, and more together"
+      },
+      {
+        "company_or_product": "Enterprises",
+        "move": "Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI"
+      }
+    ],
+    "startup_ideas": [
+      {
+        "name": "AI News Copilot",
+        "description": "Summarize daily AI updates for teams and founders."
+      },
+      {
+        "name": "Competitive Watchtower",
+        "description": "Track competitor AI announcements and strategy shifts."
+      },
+      {
+        "name": "Model Launch Radar",
+        "description": "Alert teams to new model launches and ecosystem impact."
+      },
+      {
+        "name": "AI Product Teardown",
+        "description": "Convert AI news into actionable product briefs."
+      },
+      {
+        "name": "Trend-to-Idea Engine",
+        "description": "Map AI trends to startup ideas with weekly reports."
+      }
+    ]
+  }
+}
