@@ -99,6 +99,43 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/gh/shubh-banerjee/Research-agent/data/latest.json"></script>
+    <script>
+    fetch('https://raw.githubusercontent.com/shubh-banerjee/Research-agent/main/data/latest.json?t=' + Date.now())
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        document.getElementById('report-title').innerText = 'Latest Report';
+        document.getElementById('report-generated-at').innerText = new Date(data.generated_at).toLocaleString();
+        document.getElementById('news-count').innerText = data.news_items.length;
+
+        const updatesList = document.getElementById('updates-list');
+        data.news_items.forEach(item => {
+          const itemElement = document.createElement('div');
+          itemElement.innerText = item.title;
+          updatesList.appendChild(itemElement);
+        });
+
+        const insightList = document.getElementById('insight-list');
+        data.analysis.key_trends.forEach(trend => {
+          const trendElement = document.createElement('div');
+          trendElement.innerText = `${trend.trend}: ${trend.detail}`;
+          insightList.appendChild(trendElement);
+        });
+
+        const ideaGrid = document.getElementById('idea-grid');
+        data.analysis.startup_ideas.forEach(idea => {
+          const ideaElement = document.createElement('div');
+          ideaElement.innerText = `${idea.name}: ${idea.description}`;
+          ideaGrid.appendChild(ideaElement);
+        });
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+        document.getElementById('report-panel').innerHTML = '<p>Failed to load data</p>';
+      });
+  </script>
   </body>
 </html>
