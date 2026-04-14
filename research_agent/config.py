@@ -25,7 +25,7 @@ def load_settings() -> Settings:
     ]
 
     api_key = OPENROUTER_API_KEY.strip()
-    model = OPENROUTER_MODEL.strip() or "qwen/qwen3-coder:free"
+    model = OPENROUTER_MODEL.strip()
 
     return Settings(
         rss_urls=rss_urls,

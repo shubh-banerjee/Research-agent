@@ -36,6 +36,7 @@ def analyze_news(
     model: str,
     news_items: list[NewsItem],
 ) -> dict:
+    print(f"[DEBUG] Using model: {model}")
     try:
         return _call_openrouter(api_key=api_key, model=model, news_items=news_items)
     except Exception as error:

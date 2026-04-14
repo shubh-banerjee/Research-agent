@@ -1,2 +1,4 @@
-OPENROUTER_API_KEY = "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"
-OPENROUTER_MODEL = "qwen/qwen3-coder:free"
+import os
+
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openai/gpt-4o-mini")
