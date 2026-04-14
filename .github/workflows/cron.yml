@@ -29,7 +29,7 @@ jobs:
           OPENROUTER_MODEL: openrouter/auto
         run: python main.py
 
-      - name: Fix git permissions
+      - name: Fix git safe directory
         run: git config --global --add safe.directory /github/workspace
 
       - name: Commit results
