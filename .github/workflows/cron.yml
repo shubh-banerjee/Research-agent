@@ -26,7 +26,7 @@ jobs:
       - name: Run agent
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          OPENROUTER_MODEL: openrouter/auto
+          OPENROUTER_MODEL: openai/gpt-4o-mini
         run: python main.py
 
       - name: Fix git safe directory
