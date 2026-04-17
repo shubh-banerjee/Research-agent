@@ -123,14 +123,36 @@
 
       function renderError(message) {
         document.getElementById("report-title").innerText = "Latest report unavailable";
-        document.getElementById("report-summary").innerText = message;
-        document.getElementById("report-generated-at").innerText = "-";
-        document.getElementById("news-count").innerText = "0";
-        document.getElementById("report-count").innerText = "0";
+        document.getElementById("report-summary").innerText =
+          message + "\n\nShowing cached data if available.";
+        document.getElementById("report-generated-at").innerText = cachedData?.generated_at || "-";
+        document.getElementById("news-count").innerText =
+          cachedData?.news_items?.length || "0";
+        document.getElementById("report-count").innerText = cachedData ? "1" : "0";
 
         const reportList = document.getElementById("report-list");
-        reportList.innerHTML =
-          '<div class="rounded-2xl border border-red-700/40 bg-red-900/20 p-4 text-sm text-red-200">Failed to load latest data. Try again in a moment.</div>';
+        if (cachedData) {
+          const firstTitle = cachedData.news_items?.[0]?.title || "Cached Report";
+          reportList.innerHTML = `
+            <div class="report-card group w-full rounded-2xl border border-amber-500/30 bg-zinc-900/70 p-4 text-left shadow-sm ring-1 ring-amber-400/40">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-medium text-zinc-400">${escapeHtml(
+                  String(cachedData.generated_at || '').slice(0, 10)
+                )}</span>
+                <span class="rounded-full border border-zinc-700 bg-zinc-950 px-2 py-0.5 text-[11px] text-amber-400">cached</span>
+              </div>
+              <p class="mt-2 max-h-10 overflow-hidden text-sm font-medium leading-5 text-zinc-100">${escapeHtml(
+                firstTitle
+              )}</p>
+              <p class="mt-1 text-xs text-amber-400/80">Offline data - may not be current</p>
+            </div>
+          `;
+        } else {
+          reportList.innerHTML =
+            '<div class="rounded-2xl border border-red-700/40 bg-red-900/20 p-4 text-sm text-red-200">Failed to load data. Trying again...</div>';
+          // Auto-retry after delay
+          setTimeout(() => fetchWithRetry(LATEST_URL), 5000);
+        }
 
         ["updates-list", "insight-list", "idea-grid"].forEach((id) => {
           const node = document.getElementById(id);
@@ -143,18 +165,35 @@
         });
       }
 
-      function fetchWithRetry(url, retries = 3) {
+      // Cache last successful data as fallback
+      let cachedData = null;
+
+      function fetchWithRetry(url, retries = 3, delay = 2000) {
         return fetch(url, { cache: "no-store" })
           .then((response) => {
             if (!response.ok) {
-              if (response.status === 404 && retries > 0) {
-                // GitHub might take a moment to update the raw URL
-                return new Promise(resolve => setTimeout(resolve, 2000))
-                  .then(() => fetchWithRetry(url, retries - 1));
+              if (retries > 0) {
+                const nextDelay = delay * (response.status === 404 ? 2 : 1);
+                return new Promise(resolve => setTimeout(resolve, nextDelay))
+                  .then(() => fetchWithRetry(url, retries - 1, nextDelay));
               }
-              throw new Error(`Fetch failed: ${response.status}`);
+              throw new Error(`Failed to load data (HTTP ${response.status})`);
             }
             return response.json();
+          })
+          .then(data => {
+            if (data && typeof data === 'object') {
+              cachedData = data; // Update cache
+              return data;
+            }
+            throw new Error('Invalid data format');
+          })
+          .catch(error => {
+            if (cachedData) {
+              console.warn('Using cached data due to error:', error);
+              return cachedData;
+            }
+            throw error;
           });
       }
 

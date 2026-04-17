@@ -37,10 +37,10 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
-          # Ensure latest.json exists even if empty
-          if [ ! -f "data/latest.json" ]; then
-            mkdir -p data
-            echo '{}' > data/latest.json
+          # Ensure latest.json exists with valid empty structure
+          mkdir -p data
+          if [ ! -f "data/latest.json" ] || [ $(wc -c < "data/latest.json") -lt 2 ]; then
+            echo '{"generated_at":""}' > data/latest.json
           fi
 
           git add data/*
@@ -48,4 +48,13 @@ jobs:
 
           git pull --rebase origin main
 
-          git push origin main
+          # Push with retries to handle transient GitHub issues
+          for i in 1 2 3; do
+            if git push origin main; then
+              break
+            fi
+            sleep 5
+          done
+
+          # Wait for GitHub to process the update
+          sleep 10
