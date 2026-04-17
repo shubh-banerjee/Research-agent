@@ -100,42 +100,185 @@
     </div>
 
     <script>
-    fetch('https://raw.githubusercontent.com/shubh-banerjee/Research-agent/main/data/latest.json?t=' + Date.now())
-      .then(response => {
-        if (!response.ok) throw new Error('Network response was not ok');
-        return response.json();
-      })
-      .then(data => {
-        console.log(data);
-        document.getElementById('report-title').innerText = 'Latest Report';
-        document.getElementById('report-generated-at').innerText = new Date(data.generated_at).toLocaleString();
-        document.getElementById('news-count').innerText = data.news_items.length;
+      function getLatestUrl() {
+        // Cache buster that changes every 5 minutes to balance freshness and GitHub API limits
+        const cacheBuster = Math.floor(Date.now() / (1000 * 60 * 5));
+        return `https://raw.githubusercontent.com/shubh-banerjee/Research-agent/main/data/latest.json?t=${cacheBuster}`;
+      }
 
-        const updatesList = document.getElementById('updates-list');
-        data.news_items.forEach(item => {
-          const itemElement = document.createElement('div');
-          itemElement.innerText = item.title;
-          updatesList.appendChild(itemElement);
-        });
+      const LATEST_URL = getLatestUrl();
 
-        const insightList = document.getElementById('insight-list');
-        data.analysis.key_trends.forEach(trend => {
-          const trendElement = document.createElement('div');
-          trendElement.innerText = `${trend.trend}: ${trend.detail}`;
-          insightList.appendChild(trendElement);
-        });
+      function escapeHtml(value) {
+        return String(value ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+      }
 
-        const ideaGrid = document.getElementById('idea-grid');
-        data.analysis.startup_ideas.forEach(idea => {
-          const ideaElement = document.createElement('div');
-          ideaElement.innerText = `${idea.name}: ${idea.description}`;
-          ideaGrid.appendChild(ideaElement);
+      function clearNode(node) {
+        while (node.firstChild) node.removeChild(node.firstChild);
+      }
+
+      function renderError(message) {
+        document.getElementById("report-title").innerText = "Latest report unavailable";
+        document.getElementById("report-summary").innerText = message;
+        document.getElementById("report-generated-at").innerText = "-";
+        document.getElementById("news-count").innerText = "0";
+        document.getElementById("report-count").innerText = "0";
+
+        const reportList = document.getElementById("report-list");
+        reportList.innerHTML =
+          '<div class="rounded-2xl border border-red-700/40 bg-red-900/20 p-4 text-sm text-red-200">Failed to load latest data. Try again in a moment.</div>';
+
+        ["updates-list", "insight-list", "idea-grid"].forEach((id) => {
+          const node = document.getElementById(id);
+          clearNode(node);
+          const div = document.createElement("div");
+          div.className =
+            "rounded-xl border border-zinc-800 bg-zinc-950/60 p-4 text-sm text-zinc-400";
+          div.innerText = "No data available.";
+          node.appendChild(div);
         });
-      })
-      .catch(error => {
-        console.error('Fetch error:', error);
-        document.getElementById('report-panel').innerHTML = '<p>Failed to load data</p>';
-      });
-  </script>
+      }
+
+      function fetchWithRetry(url, retries = 3) {
+        return fetch(url, { cache: "no-store" })
+          .then((response) => {
+            if (!response.ok) {
+              if (response.status === 404 && retries > 0) {
+                // GitHub might take a moment to update the raw URL
+                return new Promise(resolve => setTimeout(resolve, 2000))
+                  .then(() => fetchWithRetry(url, retries - 1));
+              }
+              throw new Error(`Fetch failed: ${response.status}`);
+            }
+            return response.json();
+          });
+      }
+
+      fetchWithRetry(LATEST_URL)
+        .then((data) => {
+          if (!data || typeof data !== "object" || !data.generated_at) {
+            renderError("Latest data file is empty or invalid.");
+            return;
+          }
+
+          const newsItems = Array.isArray(data.news_items) ? data.news_items : [];
+          const analysis = data.analysis || {};
+          const trends = Array.isArray(analysis.key_trends) ? analysis.key_trends : [];
+          const moves = Array.isArray(analysis.company_product_moves) ? analysis.company_product_moves : [];
+          const ideas = Array.isArray(analysis.startup_ideas) ? analysis.startup_ideas : [];
+
+          document.getElementById("report-title").innerText = "Latest Report";
+          document.getElementById("report-summary").innerText =
+            analysis.overall_summary || "No summary available.";
+          document.getElementById("report-generated-at").innerText = new Date(
+            data.generated_at
+          ).toLocaleString();
+          document.getElementById("news-count").innerText = String(newsItems.length);
+
+          // Sidebar (single-card latest view)
+          document.getElementById("report-count").innerText = "1";
+          const reportList = document.getElementById("report-list");
+          const firstTitle = newsItems[0] && newsItems[0].title ? newsItems[0].title : "Research Report";
+          reportList.innerHTML = `
+            <div class="report-card group w-full rounded-2xl border border-cyan-500/30 bg-zinc-900/70 p-4 text-left shadow-sm ring-1 ring-cyan-400/40">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-medium text-zinc-400">${escapeHtml(
+                  String(data.generated_at).slice(0, 10)
+                )}</span>
+                <span class="rounded-full border border-zinc-700 bg-zinc-950 px-2 py-0.5 text-[11px] text-zinc-400">latest</span>
+              </div>
+              <p class="mt-2 max-h-10 overflow-hidden text-sm font-medium leading-5 text-zinc-100">${escapeHtml(
+                firstTitle
+              )}</p>
+            </div>
+          `;
+
+          // Top 10 updates
+          const updatesList = document.getElementById("updates-list");
+          clearNode(updatesList);
+          if (!newsItems.length) {
+            const empty = document.createElement("div");
+            empty.className =
+              "rounded-xl border border-zinc-800 bg-zinc-950/60 p-4 text-sm text-zinc-400";
+            empty.innerText = "No updates available.";
+            updatesList.appendChild(empty);
+          } else {
+            newsItems.forEach((item, index) => {
+              const article = document.createElement("article");
+              article.className =
+                "rounded-xl border border-zinc-800 bg-zinc-950/60 p-4 transition hover:border-cyan-400/30";
+              article.innerHTML = `
+                <div class="flex items-start gap-3">
+                  <div class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-cyan-500/20 text-xs font-semibold text-cyan-200">${index + 1}</div>
+                  <div>
+                    <h4 class="text-sm font-semibold text-zinc-100 sm:text-base">${escapeHtml(item.title)}</h4>
+                    <p class="mt-1 text-xs text-zinc-500">${escapeHtml(item.source || "")} · ${escapeHtml(
+                String(item.published_at || "").slice(0, 10)
+              )}</p>
+                    <p class="mt-2 text-sm leading-6 text-zinc-300">${escapeHtml(item.summary || "")}</p>
+                  </div>
+                </div>
+              `;
+              updatesList.appendChild(article);
+            });
+          }
+
+          // Key insights (trends + moves)
+          const insightList = document.getElementById("insight-list");
+          clearNode(insightList);
+          const insightItems = [];
+          trends.forEach((t) => insightItems.push({ title: t.trend, body: t.detail, color: "emerald" }));
+          moves.forEach((m) => insightItems.push({ title: m.company_or_product, body: m.move, color: "emerald" }));
+
+          if (!insightItems.length) {
+            const empty = document.createElement("div");
+            empty.className =
+              "rounded-xl border border-zinc-800 bg-zinc-950/60 p-4 text-sm text-zinc-400";
+            empty.innerText = "No insights available.";
+            insightList.appendChild(empty);
+          } else {
+            insightItems.forEach((insight) => {
+              const article = document.createElement("article");
+              article.className =
+                "rounded-xl border border-zinc-800 bg-zinc-950/60 p-4 transition hover:border-emerald-400/30";
+              article.innerHTML = `
+                <h4 class="text-sm font-semibold text-zinc-100 sm:text-base">${escapeHtml(insight.title)}</h4>
+                <p class="mt-2 text-sm leading-6 text-zinc-300">${escapeHtml(insight.body)}</p>
+              `;
+              insightList.appendChild(article);
+            });
+          }
+
+          // Startup ideas
+          const ideaGrid = document.getElementById("idea-grid");
+          clearNode(ideaGrid);
+          if (!ideas.length) {
+            const empty = document.createElement("div");
+            empty.className =
+              "rounded-xl border border-zinc-800 bg-zinc-950/60 p-4 text-sm text-zinc-400";
+            empty.innerText = "No startup ideas available.";
+            ideaGrid.appendChild(empty);
+          } else {
+            ideas.forEach((idea) => {
+              const article = document.createElement("article");
+              article.className =
+                "rounded-xl border border-zinc-800 bg-zinc-950/60 p-4 transition hover:border-fuchsia-400/30";
+              article.innerHTML = `
+                <h4 class="text-sm font-semibold text-zinc-100 sm:text-base">${escapeHtml(idea.name)}</h4>
+                <p class="mt-2 text-sm leading-6 text-zinc-300">${escapeHtml(idea.description)}</p>
+              `;
+              ideaGrid.appendChild(article);
+            });
+          }
+        })
+        .catch((error) => {
+          console.error("Fetch error:", error);
+          renderError("Could not fetch latest.json from GitHub.");
+        });
+    </script>
   </body>
 </html>

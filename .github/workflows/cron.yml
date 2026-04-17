@@ -37,6 +37,12 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
+          # Ensure latest.json exists even if empty
+          if [ ! -f "data/latest.json" ]; then
+            mkdir -p data
+            echo '{}' > data/latest.json
+          fi
+
           git add data/*
           git commit -m "update reports" || echo "No changes"
 
